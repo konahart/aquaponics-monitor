@@ -13,11 +13,11 @@
 	*/
 
 	var defaultKey		= '9dJLmHiTme5tisMaa9p9hq0mkYayN6A1S2bofMvmtU27BHsH', // Unique master Xively API key to be used as a default
-		defaultFeeds	= ['1315520261'], // Co9dJLmHiTme5tisMaa9p9hq0mkYayN6A1S2bofMvmtU27BHsHmma separated array of Xively Feed ID numbers
+		defaultFeeds	= [1315520261], // Co9dJLmHiTme5tisMaa9p9hq0mkYayN6A1S2bofMvmtU27BHsHmma separated array of Xively Feed ID numbers
 		applicationName	= 'Skales Aquaponics', // Replaces Xively logo in the header
-		dataDuration	= '10000', // Default duration of data to be displayed // ref: https://xively.com/dev/docs/api/data/read/historical_data/
-		dataInterval	= 20, // Default interval for data to be displayed (in seconds)
-		dataColor		= '000111', // CSS HEX value of color to represent data (omit leading #)
+		dataDuration	= '90days', // Default duration of data to be displayed // ref: https://xively.com/dev/docs/api/data/read/historical_data/
+		dataInterval	= 100, // Default interval for data to be displayed (in seconds)
+		dataColor		= '0A1922', // CSS HEX value of color to represent data (omit leading #)
 		hideForm		= 0; // To hide input form use value of 1, otherwise set to 0
 
 // Function Declarations
