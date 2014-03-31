@@ -13,7 +13,7 @@
 	*/
 
 	var defaultKey		= '9dJLmHiTme5tisMaa9p9hq0mkYayN6A1S2bofMvmtU27BHsH', // Unique master Xively API key to be used as a default
-		defaultFeeds	= [1315520261], // Co9dJLmHiTme5tisMaa9p9hq0mkYayN6A1S2bofMvmtU27BHsHmma separated array of Xively Feed ID numbers
+		defaultFeeds	= ['1315520261'], // Co9dJLmHiTme5tisMaa9p9hq0mkYayN6A1S2bofMvmtU27BHsHmma separated array of Xively Feed ID numbers
 		applicationName	= 'Skales Aquaponics', // Replaces Xively logo in the header
 		dataDuration	= '100', // Default duration of data to be displayed // ref: https://xively.com/dev/docs/api/data/read/historical_data/
 		dataInterval	= 10, // Default interval for data to be displayed (in seconds)
