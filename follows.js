@@ -24,10 +24,14 @@
 
 	// URL Parameters
 	function getParam(key) {
+    console.log(location);
+    console.log(location.hash);
 	 	var value = location.hash.match(new RegExp(key+'=([^&]*)'));
+    console.log(value);
 		if(value) {
 			return value[1];
 		} else {
+      console.log("Hello!");
 			return "";
 		}
 	}
