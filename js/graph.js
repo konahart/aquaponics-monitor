@@ -18,6 +18,9 @@ var textMargin = {top:100, left:40},
 
 var parseDate = d3.time.format("%b %Y").parse;
 
+var date1 = new Date(2014, 8, 1),
+    date2 = new Date(2014, 11, 1);
+
 var p = "ph",
     wt = "waterTemp",
     n = "nitrogen",
@@ -32,7 +35,7 @@ var phLow = 6, phHigh = 8, phMin = 4,
     wtLow = 60, wtHigh = 90, wtMin = 30,
     nLow = 120, nHigh = 180, nMin = 60,
     atLow = 50, atHigh = 100, atMin = 0,
-    disoLow = 20, disoHigh = 60, disoMin = 0,
+    disoLow = 30, disoHigh = 60, disoMin = 0,
     tempLow = 50, tempHigh = 100;
 
 var highlighted = null;
@@ -180,7 +183,7 @@ function invert(a, b, e) {
 }
 
 // get the data
-d3.csv("./liveData/allData.csv", function(error, data) {
+d3.csv("./liveData/dummyData.csv", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
 
   data.forEach(function(d) {
@@ -693,9 +696,6 @@ function highLightInvert(d, i) {
 
 function drawPoints() {
   yDot.domain(y.domain());
-  // last 3 months
-  var date1 = new Date(2010, 00, 01), // 2010/1/1
-      date2 = new Date(2010, 02, 01); // 2010/3/1
   x.domain([date1, date2]); // show limited
   brushPoint();
 }
@@ -765,8 +765,8 @@ function getColor(val) {
 // first time when show it to user
 function firstBrush() {
   // show the last 3 months
-  var date1 = new Date(2010, 00, 01), // 2010/1/1
-      date2 = new Date(2010, 02, 01); // 2010/3/1
+  // var date1 = new Date(2010, 00, 01), // 2010/1/1
+  //     date2 = new Date(2010, 02, 01); // 2010/3/1
   x.domain([date1, date2]);
   svg.select(".brush").call(brush.extent([date1, date2]));
   focus.select(".phLine").attr("d", function(d) {  return line(paramVals[0].values);} );
