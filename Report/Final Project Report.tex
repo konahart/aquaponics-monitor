@@ -81,15 +81,15 @@ breaklinks=true,
 		Physical interaction with systems\newline
 		Awareness (of system functioning)
 	& Physical interaction with systems and awareness may conflict with calmness and free time away from work \\
-    \hline
-	Owners of system &
-		\underline{Benefits}: System reduces labor and maintenance costs\newline
-		Produce organic and high quality food\newline
-		\underline{Harms}: Could suffer financial loss if system breaks down
-	&	Ownership and property\newline 
-		Efficiency 
-	& \\
-    \hline
+%    \hline
+%	Owners of system &
+%		\underline{Benefits}: System reduces labor and maintenance costs\newline
+%		Produce organic and high quality food\newline
+%		\underline{Harms}: Could suffer financial loss if system breaks down
+%	&	Ownership and property\newline 
+%		Efficiency 
+%	& \\
+%    \hline
     \hline
     \tabhead{Indirect Stakeholders} & \tabhead{Benefits/Harms} & \tabhead{Values} & \tabhead{Conflicts} \\
     \hline
@@ -141,7 +141,9 @@ Abstract.
 
 \section{Introduction}
 
-Introduction
+Aquaponics is a method of farming which produces fish and vegetables simultaneously in the same system. It is particularly useful for increasing food security and producing food sustainably in urban settings. Aquaponics systems are very modular and easy to maintain once they’ve been set up and equipped with automated monitoring and control devices. With only a few parameters to check every day, even large systems can be managed well by a single person with the right tools. 
+
+The intent of this project is two-fold: to extend the abilities of managers to operate their aquaponics systems effectively and to provide environmentally conscious customers with relevant information about the sustainability of the system. To do this, the project will follow a value sensitive design approach.
 
 \section{Related Work}
 \subsubsection{Aquaponics}
@@ -155,7 +157,7 @@ See Figure~\ref{fig:skales}.
 \end{figure*}
 
 \subsubsection{Value Sensitive Design}
-Blah~\cite{VSD}
+Blah~\cite{VSD}\cite{moreVSD}
 
 \section{Methods}
 
@@ -165,18 +167,29 @@ Intro to methods
 
 Some stuff about VSD
 
-Although we identified an extensive list of potential stakeholders, we decided to focus on only a few principle ones (see Table~\ref{tab:stakeholders}). 
+Although we identified an extensive list of potential stakeholders, only a to focus on only a few principle ones in our investigation (see Table~\ref{tab:stakeholders}). Once we identified two key groups, we began by constructing surveys in order to investigate the values of each, which were then adapted into outlines for informal interviews. We had identified some values for each group, but needed to verify whether our 
 \stakeholdertable
 
 \subsubsection{Direct Stakeholders}
 
+The direct stakeholders, or system managers, can also be considered the ``expert users'' of our interface, whose needs and skills are specifically adapted to the system at hand. Our informal interviews allowed us to identify a few key parameters that needed to be monitorable using the interface: PH balance, water temperature, nitrogen levels, air temperature, and dissolved oxygen. Ideally the system managers would be able to add any type of parameter that could be monitored, allowing for extensible use. The system managers also stated a preference for all data to be visible on one graph, rather than a separate graph for each parameter. The interviews also confirmed the conflict between valuing calmness and free time away from the system versus physical interaction with and awareness of the system; system managers stated that an online interface would drastically improve maintenance, but that alerts would need to be immediate and disruptive if urgent. 
+
 \subsubsection{Indirect Stakeholders}
+
+The group of indirect stakeholders that we addressed, restaurant customers, constitute a much larger group than the direct stakeholders. Although we were only able to conduct interviews with a very small sample of this group, we were still able to elicit some useful information regarding values. 
+
+Initially, the intent of our investigation was to design an interface that addressed the needs of both direct and indirect stakeholders. The intuition was that the information used by system managers to monitor the operations of the aquaponics system could also be used to assess its sustainability. However, 
+
+Instead of implementing another interface, we decided to present suggestions for how such data could be disceminated to non-experts interested in sustainability:
+\begin{itemize}
+\item
+\end{itemize}
 
 \subsection{Iterative Design}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Sketch1}
-\caption{Initial sketch in response to system operator's desire to see all information at a glance.}
+\caption{Initial sketch in response to system manager's desire to see all information at a glance.}
 \label{fig:sketch1}
 \end{figure}
 
@@ -198,16 +211,20 @@ D3.js: \cite{d3js}
  
 \section{Results}
 
-Blah
-
-\section{Conclusion}
-
-Blah
+Out design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}.\footnote{Accessible for the forseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}}
 
 \section{Future Work}
 
 \subsubsection{Additional Stakeholders}
-Fish
+Although the original list of stakeholders was thought to be extensive---including everyone who could conceivably be influenced by the aquaponics system or its interface---an interview with Batya Friedman revealed a particular bias: only humans were considered as stakeholders. The fish living in the aquaponics system, possibly the most direct stakeholder of all, had been overlooked. 
+
+Another insight Friedman provided was the consideration of how to handle hardware aging. 
+
+Other extensions to this interface include moving from a passive, monitoring role to being able to actively control certain functions in response to the incoming data, e.g., remotely activating 
+
+\section{Conclusion}
+
+Blah
 
 % Balancing columns in a ref list is a bit of a pain because you
 % either use a hack like flushend or balance, or manually insert
