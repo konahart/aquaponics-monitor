@@ -85,7 +85,7 @@ var line = d3.svg.line() // top line
 var bLine = d3.svg.line() // bottom line
     .interpolate("cardinal")
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y2(d.levelVal); });
+    .y(function(d) { checkOutOfZone(d); return y2(d.levelVal); });
 
 var tip = d3.tip().attr('class', 'd3-tip') // tooltip
         .offset([-10, 0])        
@@ -135,7 +135,7 @@ var context = svg.append("g") // bottom part
     .attr("class", "context")
     .attr("transform", "translate(0," + margin2.top + ")");
 
-var paramVals, points;
+var paramVals, points, bottomLine;
 
 var rectTop = svg.append('rect') // top save region rect
               .attr("x",0)
@@ -173,6 +173,39 @@ var highText = svg.append('text')
                 .text("High")  
                 .attr("font-size", 14);
 
+// bottom warnings
+function checkOutOfZone(d){
+  var low = y2(tempLow),
+      high = y2(tempHigh),
+      val = y2(d.levelVal)
+      xPosition = x(d.date);
+      offset = -20,
+      rectLen = 10;
+
+      if (val <= low && val >= high) {
+        return;
+      }
+      if (val > low) {
+        offset = -1*offset - rectLen;
+      }
+      bottomLine.append("rect")
+            .attr('class', 'bottomWarnings')
+            .attr('x', xPosition - rectLen/2)
+            .attr('y', val + offset)
+            .attr('width', rectLen)
+            .attr('height', rectLen)
+            .attr('fill', "YELLOW")
+            .attr('fill-opacity', 0.5);
+
+      bottomLine.append('text')
+            .attr('class', 'dot')
+            .attr('x', xPosition)
+            .attr('y', val + offset + rectLen - 3)
+            .attr("font-size", 8)
+            .attr("text-anchor", "middle")
+            .attr("fill", "RED")
+            .text("!")
+}
 // normalize the param
 function normalize(a, b, e) {
   return (e - a) * 50 / (b - a);
@@ -249,7 +282,7 @@ d3.csv("./liveData/dummyData.csv", function(error, data) {
       .attr("stroke", "#fff")
       .attr("fill-opacity", 0.125);
 
-var bottomLine = context.selectAll(".bLines")
+ bottomLine = context.selectAll(".bLines")
       .data(paramVals)
     .enter().append("g")
       .attr("class", "bLines");
@@ -758,14 +791,14 @@ points.selectAll(".dot")
 function checkIfOutOfZone(x, val, dName, color) {
   var low = y(tempLow),
       high = y(tempHigh)
-      offset = 50,
+      offset = -50,
       rectLen = 25;
 
       if (val <= low && val >= high) {
         return;
       }
-      if (val < high) {
-        offset = -1*offset;
+      if (val > low) {
+        offset = -1*offset - rectLen;
       }
       points.append("rect")
             .attr('class', 'dot')
