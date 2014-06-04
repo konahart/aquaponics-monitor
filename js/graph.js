@@ -75,6 +75,7 @@ var yAxis = d3.svg.axis()
 var brush = d3.svg.brush()
     .x(x2)
     .on("brush", brushed);
+    // .on("click", function() {});
 
 var line = d3.svg.line() // top line
     .interpolate("cardinal")
@@ -740,7 +741,7 @@ points.selectAll(".dot")
           .attr('class', 'dot')
           .attr('id', function(d, i) {return "dot" + d[5];})
           .attr('cx', function(d) { return d[0];})
-          .attr('cy', function(d) { return d[1];})
+          .attr('cy', function(d) { checkIfOutOfZone(d[0], d[1], d[5], d[2]); return d[1];})
           .attr('r', function(d) {return highlighted == d[5] && isClick ? 10 : dotR;})
           .attr('fill', function(d) { return highlighted == null || highlighted == d[5] || !isClick ? d[2] : grey;})
           .on("mouseover", function(d, i) {
@@ -754,6 +755,39 @@ points.selectAll(".dot")
           });
 }
 
+function checkIfOutOfZone(x, val, dName, color) {
+  var low = y(tempLow),
+      high = y(tempHigh)
+      offset = 50,
+      rectLen = 25;
+
+      if (val <= low && val >= high) {
+        return;
+      }
+      if (val < high) {
+        offset = -1*offset;
+      }
+      points.append("rect")
+            .attr('class', 'dot')
+            .attr('id', 'dot' + dName)
+            .attr('x', x - rectLen/2)
+            .attr('y', val + offset)
+            .attr('width', rectLen)
+            .attr('height', rectLen)
+            .attr('fill', color)
+            .attr('fill-opacity', 0.5)
+            .attr("stroke", "YELLOW")
+            .attr("stroke-width", 2);
+      points.append('text')
+            .attr('class', 'dot')
+            .attr('id', 'dot' + dName)
+            .attr('x', x )
+            .attr('y', val + offset + rectLen - 5)
+            .attr("font-size", 20)
+            .attr("text-anchor", "middle")
+            .attr("fill", "RED")
+            .text("!")
+}
 // background color for the tooltip, depends on the alert
 function getColor(val) {
   tip.style({"background": "rgba(0, 0, 0, 0.8)"});
@@ -764,9 +798,6 @@ function getColor(val) {
 
 // first time when show it to user
 function firstBrush() {
-  // show the last 3 months
-  // var date1 = new Date(2010, 00, 01), // 2010/1/1
-  //     date2 = new Date(2010, 02, 01); // 2010/3/1
   x.domain([date1, date2]);
   svg.select(".brush").call(brush.extent([date1, date2]));
   focus.select(".phLine").attr("d", function(d) {  return line(paramVals[0].values);} );
@@ -778,7 +809,14 @@ function firstBrush() {
 }
 
 function brushed() {
-  x.domain(brush.empty() ? x2.domain() : brush.extent());
+  if (brush.empty()){
+    svg.select(".brush").call(brush.extent(x.domain()));
+    // disable the click feature
+    return;
+  } else {
+    // x.domain(brush.empty() ? [date1, date2] : brush.extent()); 
+    x.domain(brush.extent()); 
+  }
   points.selectAll(".dot").remove();
   brushPoint();
   focus.select(".phLine").attr("d", function(d) {  return line(paramVals[0].values);} );
