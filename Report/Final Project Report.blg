@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Final Project Report.aux
 The style file: acm-sigchi.bst
 Database file #1: FinalProjectReport.bib
-You've used 2 entries,
+You've used 3 entries,
             2243 wiz_defined-function locations,
-            534 strings with 4169 characters,
-and the built_in function-call counts, 407 in all, are:
-= -- 36
-> -- 13
+            542 strings with 4324 characters,
+and the built_in function-call counts, 813 in all, are:
+= -- 77
+> -- 25
 < -- 0
-+ -- 6
-- -- 4
-* -- 20
-:= -- 67
-add.period$ -- 5
-call.type$ -- 2
-change.case$ -- 9
++ -- 11
+- -- 8
+* -- 44
+:= -- 124
+add.period$ -- 8
+call.type$ -- 3
+change.case$ -- 14
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 15
-empty$ -- 42
-format.name$ -- 4
-if$ -- 87
+cite$ -- 3
+duplicate$ -- 37
+empty$ -- 81
+format.name$ -- 8
+if$ -- 181
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 1
-newline$ -- 12
-num.names$ -- 2
-pop$ -- 14
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 17
+num.names$ -- 4
+pop$ -- 22
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 11
 quote$ -- 0
-skip$ -- 13
+skip$ -- 29
 stack$ -- 0
-substring$ -- 10
-swap$ -- 2
+substring$ -- 39
+swap$ -- 9
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 12
 warning$ -- 0
-while$ -- 2
-width$ -- 3
-write$ -- 18
+while$ -- 7
+width$ -- 4
+write$ -- 29

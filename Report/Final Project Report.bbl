@@ -1,13 +1,19 @@
 \begin{thebibliography}{1}
 
+\bibitem{d3js}
+{D3.js - Data-Driven Documents}.
+\newblock \url{http://d3js.org/}.
+
 \bibitem{VSD}
-Batya~Friedman, P. H. K.~J., and Borning, A.
+Friedman, B., Kahn, Jr., P.~H., and Borning, A.
 \newblock {``Value Sensitive Design and Information Systems''}.
 \newblock {\em Human-Computer Interaction and Management Information Systems:
   Foundations\/} (2006).
 
-\bibitem{d3js}
-{D3.js - Data-Driven Documents}.
-\newblock \url{http://d3js.org/}.
+\bibitem{moreVSD}
+Kahn, P.
+\newblock Chapter 5: Structural-developmental methods.
+\newblock In {\em The human relationship with nature: Development and culture},
+  The MIT Press (1999), 77--93.
 
 \end{thebibliography}
