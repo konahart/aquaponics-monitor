@@ -160,16 +160,18 @@ var rectBtm = context.append('rect') // bottom save region rect
 var lowText = svg.append('text')
                 .attr("class", "lowText")
                 .attr("id", "lowText")
-                .attr("x", -40)
+                .attr("x", -10)
                 .attr("y", y(tempLow))
+                .attr("text-anchor", "end")
                 .text("Low")  
                 .attr("font-size", 14);
 
 var highText = svg.append('text')
                 .attr("class", "highText")
                 .attr("id", "highText")
-                .attr("x", -40)
+                .attr("x", -10)
                 .attr("y", y(tempHigh))
+                .attr("text-anchor", "end")
                 .text("High")  
                 .attr("font-size", 14);
 
@@ -472,7 +474,7 @@ function changeView(d, i){
 
 
   var yPos = 80, interval = 30, textXPos = 10;
-  var phText = addText(textXPos, yPos, "PH value", "Left");
+  var phText = addText(textXPos, yPos, "PH value", "start");
   var phLowText = addText(lowXPos, yPos, phLow, "middle");
   var phHighText = addText(highXPos, yPos, phHigh, "middle");
   
@@ -694,22 +696,32 @@ points.selectAll("#dot"+dName).attr('r', 10).attr('fill', color(dName));
     focus.select(".phLine")
         .attr("stroke-width", 5)//function (d) {console.log(d.values); return x(d.date) >= 0 ? 5 : 0;})
         .style("stroke",function(d) {return color(dName);});
+    d3.select("#highText").text(phHigh);
+    d3.select("#lowText").text(phLow);
   } else if (dName == wt) {
     focus.select(".wtLine")
         .attr("stroke-width", 5)
         .style("stroke",function(d) {return color(dName);});
+        d3.select("#highText").text(wtHigh);
+    d3.select("#lowText").text(wtLow);
   } else if (dName == n) {
     focus.select(".nitrogenLine")
         .attr("stroke-width", 5)
         .style("stroke",function(d) {return color(dName);});
+        d3.select("#highText").text(nHigh);
+    d3.select("#lowText").text(nLow);
   } else if (dName == at) {
     focus.select(".airTempLine")
         .attr("stroke-width", 5)
         .style("stroke",function(d) {return color(dName);});
+        d3.select("#highText").text(atHigh);
+    d3.select("#lowText").text(atLow);
   } else if (dName == diso) {
       focus.select(".dissolvedOxygenLine")
         .attr("stroke-width", 5)
         .style("stroke",function(d) {return color(dName);});
+        d3.select("#highText").text(disoHigh);
+    d3.select("#lowText").text(disoLow);
   }
 }
 
@@ -726,6 +738,9 @@ function highLightInvert(d, i) {
   points.selectAll("#dot"+n).attr("fill", color(n)).attr('r', dotR);
   points.selectAll("#dot"+at).attr("fill", color(at)).attr('r', dotR);
   points.selectAll("#dot"+diso).attr("fill", color(diso)).attr('r', dotR);
+
+  d3.select("#highText").text("High");
+    d3.select("#lowText").text("Low");
 }
 
 function drawPoints() {
