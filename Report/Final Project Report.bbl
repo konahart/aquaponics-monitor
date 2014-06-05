@@ -1,8 +1,26 @@
 \begin{thebibliography}{1}
 
+\bibitem{smallBusiness}
+Bonanni, L., Hockenberry, M., Zwarg, D., Csikszentmihalyi, C., and Ishii, H.
+\newblock ``small business applications of sourcemap: A web tool for
+  sustainable design and supply chain transparency.''.
+\newblock In {\em Chi Conference} (2010), 937--946.
+
+\bibitem{cueing}
+Cornelissen, G., Pandelaere, M., and Warlop, L.
+\newblock ``cueing common ecological behaviors to increase environmental
+  attitudes.''.
+\newblock In {\em Lecture Notes in Computer Science} (2006), 39--44.
+
 \bibitem{d3js}
 {D3.js - Data-Driven Documents}.
 \newblock \url{http://d3js.org/}.
+
+\bibitem{automated}
+Domingues, D.~S., Takahashi, H.~W., Camara, C. A.~P., , and Nixdorf, S.~L.
+\newblock ``automated system developed to control ph and concentration of
+  nutrient solution evaluated in hydroponic lettuce production.''.
+\newblock In {\em Computers and Electronics in Agriculture} (2012), 53--61.
 
 \bibitem{VSD}
 Friedman, B., Kahn, Jr., P.~H., and Borning, A.
@@ -15,5 +33,11 @@ Kahn, P.
 \newblock Chapter 5: Structural-developmental methods.
 \newblock In {\em The human relationship with nature: Development and culture},
   The MIT Press (1999), 77--93.
+
+\bibitem{audit}
+Salv\'a, M., Jones, S., Marshall, R.~J., and Bishop, C. F.~H.
+\newblock ``an audit tool for environmental measurement in the uk food
+  sector.''.
+\newblock In {\em Computers and Electronics in Agriculture} (2012), 53--61.
 
 \end{thebibliography}

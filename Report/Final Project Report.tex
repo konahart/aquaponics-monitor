@@ -141,20 +141,25 @@ Abstract.
 
 \section{Introduction}
 
-Aquaponics is a method of farming which produces fish and vegetables simultaneously in the same system. It is particularly useful for increasing food security and producing food sustainably in urban settings. Aquaponics systems are very modular and easy to maintain once they’ve been set up and equipped with automated monitoring and control devices. With only a few parameters to check every day, even large systems can be managed well by a single person with the right tools. 
+Aquaponics is a method of farming which produces fish and vegetables simultaneously in the same system (see Figure~\ref{fig:skales}). It is particularly useful for increasing food security and producing food sustainably in urban settings. Aquaponics systems are very modular and easy to maintain once they have been set up and equipped with automated monitoring and control devices. With only a few parameters to check every day, even large systems can be managed well by a single person with the right tools. 
 
 The intent of this project is two-fold: to extend the abilities of managers to operate their aquaponics systems effectively and to provide environmentally conscious customers with relevant information about the sustainability of the system. To do this, the project will follow a value sensitive design approach.
 
-\section{Related Work}
-\subsubsection{Aquaponics}
-See Figure~\ref{fig:skales}.
-
-\begin{figure*}[!h]
+\begin{figure*}
 \centering
 \includegraphics[width=0.9\textwidth]{systemDiagram}
 \caption{Skales Cooperative aquaponics system}
 \label{fig:skales}
 \end{figure*}
+
+\section{Related Work}
+\subsubsection{Aquaponics}
+
+As Domingues et. al. demonstrate in \cite{automated}, computer automation of the hydroponic growing process is very effective for increasing efficiency and reducing labor. The current project aims to implement this type of automation for aquaponics systems, which are somewhat similar to hydroponic systems. However, there appears to be a lack of research into the human factors of the design of such an automation system. Based on some initial interviews with experts in the field, urban aquaponics growers have specific needs for novel features of in an interface that would allow them to interact with their systems remotely. The current project has a direct goal of incorporating the values of these experts into the design of an effective online interface for aquaponics systems. 
+
+There is prior work \cite{smallBusiness, cueing} in engaging consumers in thinking about the sustainability of their actions, and also in engaging companies in analyzing the sustainability of their operations \cite{smallBusiness, audit}. Salv\'a et. al. identify several key factors of sustainability that companies and consumers are interested in. Cornelissen et. al. have determined effective ways for engaging people positively in environmental behaviors. Bonanni et. al. have studied a specific tool which allows businesses to present information to customers about the amount of shipping used to produce their products. The current project will combine and expand on these three pieces of work. Specifically, there will be a customer interface showing real time sustainability information (based directly off of the sensor readings) about the operations of the aquaponics system. Customers will be able to see details about water, energy, waste, etc. and how the measures of these sustainability factors compare to the average American farm. The design of the customer interface for a positive experience with environmentally friendly behavior will be well informed by the values of consumers, as determined through surveys, interviews, and other studies. 
+
+In general there seems to be a lack of research into design of well integrated computing technologies for sustainable urban food production and consumption, so this project will be an important step in seeding this area of research in the HCI community. Furthermore, it should demonstrate a helpful addition to the farm-to-table movement by introducing real sustainability information that is available for the consumer to see how their specific actions, in their specific location, benefit the environment, as opposed to generalizing about the environmental benefits of farm-to-table, which can vary significantly from place to place.
 
 \subsubsection{Value Sensitive Design}
 Blah~\cite{VSD}\cite{moreVSD}
@@ -172,20 +177,8 @@ Although we identified an extensive list of potential stakeholders, only a to fo
 
 \subsubsection{Direct Stakeholders}
 
-The direct stakeholders, or system managers, can also be considered the ``expert users'' of our interface, whose needs and skills are specifically adapted to the system at hand. Our informal interviews allowed us to identify a few key parameters that needed to be monitorable using the interface: PH balance, water temperature, nitrogen levels, air temperature, and dissolved oxygen. Ideally the system managers would be able to add any type of parameter that could be monitored, allowing for extensible use. The system managers also stated a preference for all data to be visible on one graph, rather than a separate graph for each parameter. The interviews also confirmed the conflict between valuing calmness and free time away from the system versus physical interaction with and awareness of the system; system managers stated that an online interface would drastically improve maintenance, but that alerts would need to be immediate and disruptive if urgent. 
+The direct stakeholders, or system managers, can also be considered the ``expert users'' of our interface, whose needs and skills are specifically adapted to the system at hand. Our informal interviews allowed us to identify a few key parameters that needed to be monitorable using the interface: pH balance, water temperature, nitrogen levels, air temperature, and dissolved oxygen. Ideally the system managers would be able to add any type of parameter that could be monitored, allowing for extensible use. The system managers also stated a preference for all data to be visible on one graph, rather than a separate graph for each parameter. The interviews also confirmed the conflict between valuing calmness and free time away from the system versus physical interaction with and awareness of the system; system managers stated that an online interface would drastically improve maintenance, but that alerts would need to be immediate and disruptive if urgent. 
 
-\subsubsection{Indirect Stakeholders}
-
-The group of indirect stakeholders that we addressed, restaurant customers, constitute a much larger group than the direct stakeholders. Although we were only able to conduct interviews with a very small sample of this group, we were still able to elicit some useful information regarding values. 
-
-Initially, the intent of our investigation was to design an interface that addressed the needs of both direct and indirect stakeholders. The intuition was that the information used by system managers to monitor the operations of the aquaponics system could also be used to assess its sustainability. However, 
-
-Instead of implementing another interface, we decided to present suggestions for how such data could be disceminated to non-experts interested in sustainability:
-\begin{itemize}
-\item
-\end{itemize}
-
-\subsection{Iterative Design}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Sketch1}
@@ -200,7 +193,7 @@ Instead of implementing another interface, we decided to present suggestions for
 \label{fig:sketch2}
 \end{figure}
 
-\begin{figure*}[!h]
+\begin{figure*}
 \centering
 \includegraphics[width=0.9\textwidth]{Mockup}
 \caption{Color mockup based on D3.js aesthetics.}
@@ -209,9 +202,26 @@ Instead of implementing another interface, we decided to present suggestions for
 
 D3.js: \cite{d3js}
  
+ 
+\subsubsection{Indirect Stakeholders}
+
+The group of indirect stakeholders that we addressed, restaurant customers, constitute a much larger group than the direct stakeholders. Although we were only able to conduct interviews with a very small sample of this group, we were still able to elicit some useful information regarding values. 
+
+Initially, the intent of our investigation was to design an interface that addressed the needs of both direct and indirect stakeholders. The intuition was that the information used by system managers to monitor the operations of the aquaponics system could also be used to assess its sustainability. However, our informal interviews made it clear that the information needs of the indirect stakeholders were too different from those of the direct stakeholders to be addressed by the same interface. Instead of implementing another interface, we decided to present suggestions for how such data could be made available to non-experts interested in sustainability:
+\begin{itemize}
+\item The live data available to system managers is too much for non-experts to make sense of. Instead, certain system information should be available in summary, e.g., water used annually.
+\item In addition to presenting information in summary, data should also be contextualized. Even given data such as annual water use, non-experts are not able to compare to more conventional forms of farming. Suggested contextualization techniques include:
+	\begin{itemize}
+	\item Resources consumed in system to create a plate of food.
+	\item Amount of food that could be produced if the aquaponics system filled a city block. 
+	\item Direct comparison to conventional farming methods either inhabiting the same amount of space as the aquaponics system or generating the same amount of food.
+	\end{itemize}
+\item Ideally, information should be available to restaurant customers in-restaurant. Even restaurant customers who self-reported as being particularly interested in sustainability stated that they would not go out of their way (read, download an app or go to a website) to get sustainability information about food served in restaurants. In order to accomodate this, we suggest a system that generates a data sheet suitable for printing, for the restaurants to carry at their discretion. 
+\end{itemize}
+
 \section{Results}
 
-Out design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}.\footnote{Accessible for the forseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}}
+Our design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}.\footnote{Accessible for the foreseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}}
 
 \section{Future Work}
 
