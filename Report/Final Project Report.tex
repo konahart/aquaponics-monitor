@@ -124,7 +124,7 @@ breaklinks=true,
     \email{hart1a@uw.edu}\\
   \alignauthor Sam Wilson\\
     \affaddr{University of Washington}\\
-    %\email{e-mail address}\\
+    \email{samw11@cs.washington.edu}\\
 }
 
 \maketitle
@@ -172,7 +172,7 @@ Intro to methods
 
 Some stuff about VSD
 
-Although we identified an extensive list of potential stakeholders, only a to focus on only a few principle ones in our investigation (see Table~\ref{tab:stakeholders}). Once we identified two key groups, we began by constructing surveys in order to investigate the values of each, which were then adapted into outlines for informal interviews. We had identified some values for each group, but needed to verify whether our 
+Although we identified an extensive list of potential stakeholders, we only focus on a few principle ones in our investigation (see Table~\ref{tab:stakeholders}). Once we identified two key groups, we began by constructing surveys in order to investigate the values of each, which were then adapted into outlines for informal interviews. We had identified some values for each group, but needed to verify whether our 
 \stakeholdertable
 
 \subsubsection{Direct Stakeholders}
@@ -200,6 +200,13 @@ The direct stakeholders, or system managers, can also be considered the ``expert
 \label{fig:mockup}
 \end{figure*}
 
+\begin{figure*}
+\centering
+\includegraphics[width=0.9\textwidth]{Visualization_Screenshot}
+\caption{Screenshot of the current visualization}
+\label{fig:visualization}
+\end{figure*}
+
 D3.js: \cite{d3js}
  
  
@@ -221,7 +228,14 @@ Initially, the intent of our investigation was to design an interface that addre
 
 \section{Results}
 
-Our design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}.\footnote{Accessible for the foreseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}}
+Our design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}.
+\footnote{Accessible for the foreseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}} (Figure~\ref{fig:visualization}) The graph at the top is the trend of five parameters, i.e. pH value, water temperature, nitrogen, air temperature and dissolved oxygen. The x-axis represents the time and the y-axis represents the value of the those parameters. Color encoding is used in this visualization to represent the parameters. Users can select one of the five parameters at the top and the line of the selected parameter will be highlighted in the graph. 
+
+The green area in the graph represent the safe zone for the parameters. In ideal case, all values should be within the green area. If some of the parameter values went off the green area, a little alert box with an exclamation mark on top of the value will be appeared and also the system will alert the user by sending text message, email or even a phone call. In that case, user will able to take action on it. User can also mouse over the points on the line to see the actual value of the parameter at specific time. A tooltip box will pops up and the background of the tooltip will change to yellow if the value is out of the green area, indicating that user needs to pay attention on that.
+
+There are more controls at the top right corner. Right now, only line graph is implemented. The bar graph and the live camera will be the future work. There is also a setting button which user can adjuct the suitable values for those parameters. For example, the water temperature needed to be adjusted depends on the weather. 
+
+There is an overall time graph at the bottom of the visualization. This graph represents all the value from the beginning until present. The main graph at the top shows the time line of the little grey box area at the bottom of the graph. When user brush the grey box, the top graph will changed showing the values over the brushed time. The width of the grey box can also be changed so that user will not only limited on a specific time region. 
 
 \section{Future Work}
 
@@ -230,7 +244,7 @@ Although the original list of stakeholders was thought to be extensive---includi
 
 Another insight Friedman provided was the consideration of how to handle hardware aging. 
 
-Other extensions to this interface include moving from a passive, monitoring role to being able to actively control certain functions in response to the incoming data, e.g., remotely activating 
+Other extensions to this interface include moving from a passive, monitoring role to being able to actively control certain functions in response to the incoming data, e.g., remotely activating. More visualization could be added such as the bar chat. The live camera could also be added once the hardware is in place. In terms of the alert feature, the system could be adjusted automatically if the value goes off in a small amount rather than keep sending alert to the user.
 
 \section{Conclusion}
 
