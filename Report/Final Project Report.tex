@@ -109,6 +109,25 @@ breaklinks=true,
   \label{tab:stakeholders}
 \end{table*}}
 
+\newcommand{\tasktable}{
+\begin{table}
+\centering
+\begin{tabularx}{0.45\textwidth}{|X|X|X|X|}
+    \hline
+    \tabhead{Task instruction} & \tabhead{Feature tested} \\
+    \hline
+    Identify whether any feeds are currently outside of optimal limits. & The default view of the chart, whether optimal settings zone is clear \\
+    \hline
+    Find how many times the feeds went outside optimal parameters in the last 3 months. & Whether brush (timeline) has correct affordances\\
+    \hline
+    Find out if/how many times each feed went outside optimal settings between March and February. & Whether people view all settings at once, or use the buttons to view them individually; requires additional use of brush\\
+    \hline
+\end{tabularx}
+  \caption{Tasks used to test interface prototype}
+  \label{tab:tasks}
+\end{table}
+}
+
 % End of preamble. Here it comes the document.
 \begin{document}
 
@@ -130,12 +149,10 @@ breaklinks=true,
 \maketitle
 
 \begin{abstract}
-Abstract.
+Aquaponics is a method of farming which can be useful in an urban setting for sustainably producing food and increasing food security. This study pursued two goals related to the display of aquaponics system information: to extend the abilities of managers to operate such systems effectively and to provide environmentally conscious customers with relevant information about the sustainability of the system. By using value sensitive design, we produced an interface for monitoring an aquaponics system and provide suggestions for furnishing interested parties with sustainability information. 
 \end{abstract}
 
-\keywords{
-	Aquaponics; sustainability; value sensitive design;
-}
+\keywords{Aquaponics; sustainability; value sensitive design;}
 
 \category{H.5.2.}{Information Interfaces and Presentation}{User Interfaces}
 
@@ -168,30 +185,38 @@ Blah~\cite{VSD}\cite{moreVSD}
 
 Intro to methods
 
-\subsection{Value Sensitive Design}
+\subsection{Identifying stakeholders}
 
-Some stuff about VSD
-
-Although we identified an extensive list of potential stakeholders, we only focus on a few principle ones in our investigation (see Table~\ref{tab:stakeholders}). Once we identified two key groups, we began by constructing surveys in order to investigate the values of each, which were then adapted into outlines for informal interviews. We had identified some values for each group, but needed to verify whether our 
+Our first step was to create a list of potential stateholders. Although our list was initially quite extensive, we chose to focus on a few principle ones in our investigation (see Table~\ref{tab:stakeholders}). In particular, we chose system managers and restaurants owners/customers because we suspected their needs could be addressed using the system monitoring information available to us. Once we identified these two key groups, we began by constructing surveys in order to investigate the values of each. In response to feedback about our plan of investigation, the surveys were adapted into outlines for informal interviews. We had identified some values for each group in the initial step of identifying stakeholders, but needed to verify whether our intuitions were accurate. From this point, our investigations of the key groups diverged, and are addressed individually below. 
 \stakeholdertable
 
-\subsubsection{Direct Stakeholders}
+\subsection{Direct Stakeholders}
 
 The direct stakeholders, or system managers, can also be considered the ``expert users'' of our interface, whose needs and skills are specifically adapted to the system at hand. Our informal interviews allowed us to identify a few key parameters that needed to be monitorable using the interface: pH balance, water temperature, nitrogen levels, air temperature, and dissolved oxygen. Ideally the system managers would be able to add any type of parameter that could be monitored, allowing for extensible use. The system managers also stated a preference for all data to be visible on one graph, rather than a separate graph for each parameter. The interviews also confirmed the conflict between valuing calmness and free time away from the system versus physical interaction with and awareness of the system; system managers stated that an online interface would drastically improve maintenance, but that alerts would need to be immediate and disruptive if urgent. 
 
+Based on these preference statements, we outlined a few key features:
+\begin{itemize}
+\item An adustable timeline, which would allow system operators to not only see up-to-date data, but also arbitrary intervals of time in order to look for trends in the system's performance. 
+\item Multiple visualizations of live system data. A line graph works well for data over time, but under-emphasizes the time frame a system manager will most often be concerned about when checking the site: the present moment. The system will also eventually be fitted with a camera to allow the system manager to monitor data that perhaps is not best represented by numbers, such as fish activity. 
+\item Individual, customizable settings for each parameter. Each parameter has its own value range. Also true is that each parameter has a particular range that it should stay within for best performance of the system; the system manager should be able to set that range for each parameter. 
+\item A normalized view of all parameters. Because each parameter has its own value range, the request that they all be displayed on one graph was at first conceptually daunting. Since each parameter also has a particular range that it should stay within, we therefore conceptualized this as an ``optimal zone'' by which to normalize. 
+\item The ability to add parameters as more monitoring equipment becomes available. 
+\end{itemize}
+
+Based on these features, we produced our first sketches (Figures~\ref{fig:sketch1} and \ref{fig:sketch2}). 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Sketch1}
 \caption{Initial sketch in response to system manager's desire to see all information at a glance.}
 \label{fig:sketch1}
 \end{figure}
-
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{Sketch2}
 \caption{Refinement upon first sketch.}
 \label{fig:sketch2}
 \end{figure}
+When our concept was solid enough, we produced a color mockup in the style of D3.js in anticipation of utilizng the Javascript library to implement the interface prototype (Figure~\ref{fig:mockup}) \cite{d3js}. Having a color mockup in the same aesthetic system proved useful for adapting to new suggestions as they occurred.
 
 \begin{figure*}
 \centering
@@ -200,15 +225,15 @@ The direct stakeholders, or system managers, can also be considered the ``expert
 \label{fig:mockup}
 \end{figure*}
 
-\begin{figure*}
-\centering
-\includegraphics[width=0.9\textwidth]{Visualization_Screenshot}
-\caption{Screenshot of the current visualization}
-\label{fig:visualization}
-\end{figure*}
+The next step was to implement a prototype on which we could conduct task-based testing. The prototype was populated with static, generated data, which meant that task performance could be compared a ``correct'' script. The tasks were constructed around ensuring that various features of the interface were easily interpretable (Table~\ref{tab:tasks}). 
 
-D3.js: \cite{d3js}
- 
+\tasktable
+
+Due to lack of availability of ``expert users'' for testing, we adapted the tasks by adding the following scenario preamble.
+
+``You are the manager of an aquaponics farming system. In order to ensure that it is in good working order, you need to monitor the following: pH balance, water temperature, nitrogen levels, air temperature, and dissolved oxygen.  Each of these has boundaries it should stay between for best performance, for example, dissolved oxygen should remain between 30 and 60. If it goes above or below those measurements, the system will need in-person maintenance.''
+
+The feedback from the task-based user testing was then integrated into our final interface. 
  
 \subsubsection{Indirect Stakeholders}
 
@@ -228,8 +253,15 @@ Initially, the intent of our investigation was to design an interface that addre
 
 \section{Results}
 
-Our design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}.
-\footnote{Accessible for the foreseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}} (Figure~\ref{fig:visualization}) The graph at the top is the trend of five parameters, i.e. pH value, water temperature, nitrogen, air temperature and dissolved oxygen. The x-axis represents the time and the y-axis represents the value of the those parameters. Color encoding is used in this visualization to represent the parameters. Users can select one of the five parameters at the top and the line of the selected parameter will be highlighted in the graph. 
+%\begin{figure*}
+%\centering
+%\includegraphics[width=0.9\textwidth]{Visualization_Screenshot}
+%\caption{Screenshot of the current visualization}
+%\label{fig:visualization}
+%\end{figure*}
+
+Our design efforts resulted in a limited \href{http://homes.cs.washington.edu/~samw11/510/}{live prototype}, a static version of which can be seen in Figure~\ref{fig:visualization}. 
+\footnote{Accessible for the foreseeable future at \url{http://homes.cs.washington.edu/~samw11/510/}} The graph at the top is the trend of the five parameters system managers indicated, i.e., pH value, water temperature, nitrogen, air temperature and dissolved oxygen. The x-axis represents the time and the y-axis represents the value of the those parameters. Color encoding is used in this visualization to represent the parameters. Users can select one of the five parameters at the top and the line of the selected parameter will be highlighted in the graph. 
 
 The green area in the graph represent the safe zone for the parameters. In ideal case, all values should be within the green area. If some of the parameter values went off the green area, a little alert box with an exclamation mark on top of the value will be appeared and also the system will alert the user by sending text message, email or even a phone call. In that case, user will able to take action on it. User can also mouse over the points on the line to see the actual value of the parameter at specific time. A tooltip box will pops up and the background of the tooltip will change to yellow if the value is out of the green area, indicating that user needs to pay attention on that.
 
@@ -238,11 +270,13 @@ There are more controls at the top right corner. Right now, only line graph is i
 There is an overall time graph at the bottom of the visualization. This graph represents all the value from the beginning until present. The main graph at the top shows the time line of the little grey box area at the bottom of the graph. When user brush the grey box, the top graph will changed showing the values over the brushed time. The width of the grey box can also be changed so that user will not only limited on a specific time region. 
 
 \section{Future Work}
-
-\subsubsection{Additional Stakeholders}
 Although the original list of stakeholders was thought to be extensive---including everyone who could conceivably be influenced by the aquaponics system or its interface---an interview with Batya Friedman revealed a particular bias: only humans were considered as stakeholders. The fish living in the aquaponics system, possibly the most direct stakeholder of all, had been overlooked. 
 
-Another insight Friedman provided was the consideration of how to handle hardware aging. 
+Further development of the alert system would have benefited both the previously-identified stakeholders and the newly-considered ones. By creating a hierarchy of alerts, system managers could be consistently informed about the status of the system, and sufficiently disturbed by an alarm that denotes immediate dangers to the living inhabitants of the aquaponics system. Investigation into the creation and maintenance of such a hierarchy would be an invaluable next step for the success of this interface. 
+
+Our design currently makes strong use of color symbolism. From testing, it was clear that people immediately understood that green means ``good.'' Additional use of color could be used on the graph to show the proximity of parameters to setting off the next tier of alarm, such as ``yellow zones'' and ``red zones'' denoting increasing severity as the parameter deviates farther from its optimal settings.
+
+Another insight Friedman provided was the consideration of how to handle hardware aging. One idea to address aging is to allow system managers to set regularly-recurring maintenance reminders, but more work would need to be done on the form of alert appropriate for such reminders.  
 
 Other extensions to this interface include moving from a passive, monitoring role to being able to actively control certain functions in response to the incoming data, e.g., remotely activating. More visualization could be added such as the bar chat. The live camera could also be added once the hardware is in place. In terms of the alert feature, the system could be adjusted automatically if the value goes off in a small amount rather than keep sending alert to the user.
 
@@ -273,4 +307,5 @@ Blah
 
 \bibliographystyle{acm-sigchi}
 \bibliography{FinalProjectReport}
+
 \end{document}
